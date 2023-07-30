@@ -1,0 +1,49 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# Tiger Code - 虎码
+
+---
+name: tiger.extended
+version: "2023年 07月 13日 星期四"
+sort: by_weight
+import_tables:
+  - tiger
+  - tiger.i
+...
+
+𭤪	falf
+𢡷	aihh
+𱵆	ftdk
+𱵽	xtdk
+𢏻	xnae
+𮌁	naid
+𣯎	oavm
+𢤉	rbnh
+𡅛	dxnw
+𮀌	majr
+𪿹	myrv
+𬒜	myre
+𤽗	uyrl
+𤽗	uyfa
+𪿒	myrl
+𩵿	wyrl
+𩵿	wyae
+𩵿	wyfa
+𢪀	uyrl
+𢪀	uyfa
+𠉝	jurl
+𠉝	juya
+𡳿	aggf
+𮁁	mfoo
+𱈰	xhjd
+𮯞	xvbq
+𮮺	zcjv
+𠁧	dae
+㔺	nnae
+𮮵	uqag
+𱍐	moc
+𱥾	kfva
+𦸩	loqu
+𥻔	pqnl
+
