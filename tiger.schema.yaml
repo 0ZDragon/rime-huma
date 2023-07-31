@@ -1,6 +1,7 @@
 schema:
   author:
-    - {}
+    - b
+    - 0ZDragon
   dependencies:
     - pinyin_simp
   description: |
@@ -13,23 +14,23 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 西文 ]
-#  - name: full_shape
-#    states: [ 半角, 全角 ]
+    states: ["中文", "西文"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: ascii_punct
+    states: ["。，", "．，"]
+#  - options: [ gb2312, big5, utf8 ]
+#    states:	 
+#    - "汉字"
+#    - "漢字"
+#    - "增广"
 #  - name: extended_charset
-#    states: [ 常用, 增廣 ]
-#  - name: ascii_punct
-#    states: [ 。，, ．， ]
-  - options: [ gbk, gb2312, utf8 ]
-    states:	 
-    - GBK
-    - GB2312
-    - UTF-8
-
-
-
+#    states: [ 常用, 增广 ]
   - options: [ _keyboard_default, _keyboard_defaultzj]
     states: [ "助记关", "助记开"]
+  - name: chaifen
+    reset: 1
+    states: [ 拆隐, 拆显 ]
     
 engine:
   processors:
@@ -48,17 +49,17 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
+    - echo_translator
     - punct_translator
     - reverse_lookup_translator
     - table_translator
   filters:
-#    - simplifier
-    - uniquifier
     - charset_filter@gbk
     - charset_filter@utf8
     - charset_filter@gb2312
-#    - charset_filter@big5
-#    - reverse_lookup_filter@reverse_lookup
+    - charset_filter@big5
+    - simplifier@chaifen
+    - uniquifier
 
 speller:
   auto_clear: max_length
@@ -67,7 +68,7 @@ speller:
 
 
 translator:
-  dictionary: tiger
+  dictionary: tiger.extended
   enable_charset_filter: false
   enable_encoder: true
   enable_sentence: false
@@ -89,15 +90,34 @@ punctuator:
   import_preset: symbols
 
 key_binder:
-#  import_preset: default
+  import_preset: default
   bindings:
+    # 分号次选
     - {accept: semicolon, send: 2, when: has_menu}
+    # 引号三选
+    - {accept: apostrophe, send: 3, when: has_menu}
+    # 数字键盘回车
+    - { when: has_menu, accept: KP_Enter, send: Return }
 
 recognizer:
   import_preset: default
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
     reverse_lookup: "^`[a-z]*'?$"
+
+# 拆分滤镜
+chaifen:
+  opencc_config: hu_cf.json
+  option_name: chaifen
+  show_in_comment: true
+  comment_format:
+    - "xform/&nbsp;/ /"
+  tags:
+    - abc
+    - tiger
+    - tigress
+    - reverse_lookup
+  tips: all #如只想给单字加滤镜，可改为 char
 
 ascii_composer:
   switch_key:
