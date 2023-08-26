@@ -1,15 +1,19 @@
+# Rime schema settings
+# encoding: utf-8
+
 schema:
+  schema_id: tiger
+  name: "虎码官方单字"
+  version: "2023年 08月 26日 星期六 17:48:18 CST"
   author:
-    - b
-    - 0ZDragon
-  dependencies:
-    - pinyin_simp
+    - 发明人 B佬
+    - 魔改人 0ZDragon
   description: |
     虎码官方单字
     敲 ` 鍵進入拼音反查    
-  name: "虎码官方单字"
-  schema_id: tiger
-  version: 0.9
+  dependencies:
+    - PY_c
+    - stroke
 
 switches:
   - name: ascii_mode
@@ -39,6 +43,7 @@ engine:
     - key_binder
     - speller
     - punctuator
+    - lua_processor@exe_processor # 增加网页启动器支持
     - selector
     - navigator
     - express_editor
@@ -49,16 +54,19 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
-    - echo_translator
+    - echo_translator # 增加 echo_translator
     - punct_translator
     - reverse_lookup_translator
+    - reverse_lookup_translator@reverse_pinyin # 增加笔画反查支持
+    - reverse_lookup_translator@reverse_stroke # 增加拼音反查支持
     - table_translator
+    - lua_translator@unicode_translator # 增加 Unicode 输入支持
   filters:
     - charset_filter@gbk
     - charset_filter@utf8
     - charset_filter@gb2312
     - charset_filter@big5
-    - simplifier@chaifen
+    - simplifier@chaifen # 配合拆分滤镜
     - uniquifier
 
 speller:
@@ -76,15 +84,35 @@ translator:
   max_phrase_length: 4
   enable_user_dict: false
 
+# 反查总配置
 reverse_lookup:
-  dictionary: pinyin_simp
-  preedit_format:
-    - "xform/([nl])v/$1ü/"
-    - "xform/([nl])ue/$1üe/"
-    - "xform/([jqxy])v/$1u/"
+  extra_tags:
+    # 笔画反查
+    - reverse_stroke
+    # 拼音++反查
+    - reverse_pinyin
+
+# 拼音++反查
+reverse_pinyin:
+  tag: reverse_pinyin
+  dictionary: PY_c
   prefix: "`"
   suffix: "'"
-  tips: "〔拼音〕"
+  tips: 〔拼音反查〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+# 笔画反查
+reverse_stroke:
+  tag: reverse_stroke
+  dictionary: stroke
+  prefix: "~"
+  suffix: "'"
+  tips: 〔笔画反查〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
 
 punctuator:
   import_preset: symbols
@@ -103,7 +131,9 @@ recognizer:
   import_preset: default
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
-    reverse_lookup: "^`[a-z]*'?$"
+    reverse_pinyin: "^`[a-z]*'?$"
+    reverse_stroke: "^~[a-z]*'?$"
+    unicode: "^U.*$"
 
 # 拆分滤镜
 chaifen:
@@ -117,6 +147,10 @@ chaifen:
     - tiger
     - tigress
     - reverse_lookup
+    # 笔画反查
+    - reverse_stroke
+    # 拼音++反查
+    - reverse_pinyin
   tips: all #如只想给单字加滤镜，可改为 char
 
 ascii_composer:
@@ -127,11 +161,4 @@ ascii_composer:
     Eisu_toggle: clear
     Shift_L: commit_code
     Shift_R: commit_text
-
-
-#menu:
-#  page_size: 3
-
-
-
 

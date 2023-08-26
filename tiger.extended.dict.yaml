@@ -5,11 +5,10 @@
 
 ---
 name: tiger.extended
-version: "2023年 07月 13日 星期四"
+version: "2023年 08月 26日 星期六 17:48:18 CST"
 sort: by_weight
 import_tables:
   - tiger
-  - tiger.i
 ...
 
 𲀣	phok
@@ -49,4 +48,6 @@ import_tables:
 𦸩	loqu
 𥻔	pqnl
 賓	wfyo
+𮯰	lfi
+𮯲	efae
 

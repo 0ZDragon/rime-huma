@@ -1,0 +1,134 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: stroke
+  name: "五笔画"
+  version: "0.5"
+  author:
+    - 四季的風
+    - 雪齋
+    - Kunki Chou
+    - 0ZDragon
+  description: |
+    五笔画
+    基于Rime官方「五筆畫」输入方案制成
+    码表源自宋天郑码 笔画输入法码表.txt
+    h,s,p,n,z 代表横、竖、撇、捺、折
+  dependencies:
+    - PY_c
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: extended_charset
+    reset: 1
+    states: [ 常用, 增广 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+
+speller:
+  alphabet: "abcdefghijklmnopqrstuvwxyz"
+  delimiter: " '"
+
+menu:
+  page_size: 9
+
+translator:
+  dictionary: stroke
+  enable_charset_filter: true
+  enable_user_dict: false
+  preedit_format:
+#   - xlit/hspnz/㇐㇑㇒㇏㇠/   # 中日韩笔画（横竖撇捺折）
+    - xlit/hspnz/⼀⼁⼃⼂⼄/   # 康熙部首（横竖撇点折）
+  comment_format:
+    - xform/~//
+#   - xlit/hspnz/㇐㇑㇒㇏㇠/   # 中日韩笔画（横竖撇捺折）
+    - xlit/hspnz/⼀⼁⼃⼂⼄/   # 康熙部首（横竖撇点折）
+
+abc_segmentor:
+  extra_tags:
+    - reverse_lookup
+
+reverse_lookup:
+  dictionary: PY_c
+  prefix: "`"
+  suffix: "'"
+  tips: 〔拼音反查〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+  comment_format:
+#   - xlit/hspnz/㇐㇑㇒㇏㇠/   # 中日韩笔画（横竖撇捺折）
+    - xlit/hspnz/⼀⼁⼃⼂⼄/   # 康熙部首（横竖撇点折）
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  import_preset: default
+  bindings:
+    # 兼容其他笔画名称（捺属点部、提属横部）
+    - { when: always, accept: "d", send: "n" }
+    - { when: always, accept: "t", send: "h" }
+    # 兼容Mac笔画输入法按键：🅹⼀, 🅺⼁, 🅻⼃, 🆄⼂, 🅸⺂
+    - { when: always, accept: "j", send: "h" }
+    - { when: always, accept: "k", send: "s" }
+    - { when: always, accept: "l", send: "p" }
+    - { when: always, accept: "u", send: "n" }
+    - { when: always, accept: "i", send: "z" }
+    # 兼容Mac笔画输入法小键盘按键：1︎⃣⼀, 2︎⃣⼁, 3︎⃣⼃, 4︎⃣⼂, 5︎⃣⺂
+    - { when: always, accept: "KP_1", send: "h" }
+    - { when: always, accept: "KP_2", send: "s" }
+    - { when: always, accept: "KP_3", send: "p" }
+    - { when: always, accept: "KP_4", send: "n" }
+    - { when: always, accept: "KP_5", send: "z" }
+    # 禁用小键盘其他数字按键，以防误触
+#    - { when: has_menu, accept: "KP_6", send: Select }
+#    - { when: has_menu, accept: "KP_7", send: Select }
+#    - { when: has_menu, accept: "KP_8", send: Select }
+#    - { when: has_menu, accept: "KP_9", send: Select }
+#    - { when: has_menu, accept: "KP_0", send: Select }
+    - { when: always, accept: "KP_6", send: "n" }
+    - { when: always, accept: "KP_7", send: "h" }
+    - { when: always, accept: "KP_8", send: "s" }
+    - { when: always, accept: "KP_9", send: "p" }
+    - { when: always, accept: "KP_0", send: space }
+    # 小键盘减号为退格
+    - { when: always, accept: "KP_Subtract", send: BackSpace }
+    # 分号次选
+    - {accept: semicolon, send: 2, when: has_menu}
+    # 数字键盘回车
+    - { when: has_menu, accept: KP_Enter, send: Return }
+
+recognizer:
+  import_preset: default
+  patterns:
+    # 启用符号
+    punct: '^/([0-9]0?|[A-Za-z]+)$'
+    reverse_lookup: "`[a-z]*'?$"
