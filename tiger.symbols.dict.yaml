@@ -1,0 +1,56 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# Tiger Code - 虎码
+# 杂符拆分
+# by秦始皇
+
+---
+name: tiger.symbols
+version: "2023年 08月 28日 星期一 10:23:05 CST"
+sort: by_weight
+use_preset_vocabulary: false
+...
+
+# 象棋符号 Chess Symbols（14個）
+🩠	tkrj
+🩡	jgs
+🩢	eqm
+🩣	nmm
+🩤	ycc
+🩥	cnvs
+🩦	thb
+🩧	avkc
+🩨	gs
+🩩	wx
+🩪	nmm
+🩫	ycc
+🩬	mnvs
+🩭	zjjn
+# 麻將牌（16個）
+🀀	eorm
+🀁	nmgy
+🀂	vx
+🀃	avb
+🀄	d
+🀄	dgs
+🀅	hbrs
+🀅	srid
+🀆	ub
+🀢	eekm
+🀣	hts
+🀣	laxh
+🀤	ru
+🀥	lnpm
+🀦	aior
+🀧	fohi
+🀨	xch
+🀩	hwb
+🀪	uljd
+# CJK兼容符號（5個）
+㍻	ehna
+㍼	opxd
+㍽	mdfs
+㍾	ovkk
+㍿	etpu
+㍿	epjf
