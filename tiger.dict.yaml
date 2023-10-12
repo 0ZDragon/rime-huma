@@ -18,5 +18,13 @@ import_tables:
   # 词
   # - tigress_ci
   # - tigress_simp_ci
+encoder:
+  rules:
+    - length_equal: 2
+      formula: "AaAbBaBb"
+    - length_equal: 3
+      formula: "AaBaCaCb"
+    - length_in_range: [4, 99]
+      formula: "AaBaCaZa"
 ...
 
