@@ -1,16 +1,22 @@
-# Rime dictionary
 # encoding: utf-8
 #
-# Tiger Code - 虎码
+# 虎码输入法
+# 版本: 20231003
+
+# 发明人 B佬
+# 魔改人 0ZDragon
+
+# 码表中定义的词组
 
 ---
 name: tiger.extended
-version: "2023年 08月 26日 星期六 17:48:18 CST"
+version: "2023.10.03"
 sort: by_weight
-import_tables:
-  - tiger
-  - tiger.khitan
-  - tiger.symbols
+use_preset_vocabulary: false
+columns:
+  - text
+  - code
+  - weight
 ...
 
 你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。	jsue
@@ -53,4 +59,3 @@ import_tables:
 賓	wfyo
 𮯰	lfi
 𮯲	erq
-

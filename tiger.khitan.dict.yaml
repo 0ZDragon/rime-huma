@@ -1,13 +1,17 @@
 # Rime dictionary
 # encoding: utf-8
 #
-# Tiger Code - 虎码
+# 虎码输入法
+# 版本: 20231003
+
+# 发明人 B佬
+# 魔改人 0ZDragon
+
 # 契丹小字拆分
-# by秦始皇
 
 ---
 name: tiger.khitan
-version: "2023年 08月 28日 星期一 10:23:05 CST"
+version: "2023.10.03"
 sort: by_weight
 use_preset_vocabulary: false
 ...

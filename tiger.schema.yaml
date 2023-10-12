@@ -3,14 +3,14 @@
 
 schema:
   schema_id: tiger
-  name: "虎码官方单字"
-  version: "2023年 08月 26日 星期六 17:48:18 CST"
+  name: "虎码输入法"
+  version: "2023.10.12"
   author:
     - 发明人 B佬
     - 魔改人 0ZDragon
   description: |
-    虎码官方单字
-    敲 ` 鍵進入拼音反查    
+    虎码输入法
+    敲 ` 键进入拼音反查    
   dependencies:
     - PY_c
     - stroke
@@ -28,11 +28,10 @@ switches:
 #    - "汉字"
 #    - "漢字"
 #    - "增广"
-#  - name: extended_charset
-#    states: [ 常用, 增广 ]
   - options: [ _keyboard_default, _keyboard_defaultzj]
     states: [ "助记关", "助记开"]
   - name: chaifen
+# 默认开启拆分滤镜
     reset: 1
     states: [ 拆隐, 拆显 ]
     
@@ -74,9 +73,8 @@ speller:
   auto_select: true
   max_code_length: 4
 
-
 translator:
-  dictionary: tiger.extended
+  dictionary: tiger
   enable_charset_filter: false
   enable_encoder: true
   enable_sentence: false
@@ -126,6 +124,8 @@ key_binder:
     - {accept: apostrophe, send: 3, when: has_menu}
     # 数字键盘回车
     - { when: has_menu, accept: KP_Enter, send: Return }
+    # 拆分滤镜开关
+    - { accept: "Control+j", toggle: chaifen, when: composing } 
 
 recognizer:
   import_preset: default
