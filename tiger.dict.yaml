@@ -15,6 +15,7 @@ import_tables:
   - tiger.char
   - tiger.khitan
   - tiger.symbols
+  - tiger.extended
   # 词
   # - tigress_ci
   # - tigress_simp_ci
