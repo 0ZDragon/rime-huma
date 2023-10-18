@@ -17,7 +17,7 @@ use_preset_vocabulary: false
 ...
 
 # IDS Ideographic Description Characters（1个）
-㇯	rrfi
+# ㇯	rrfi
 # 象棋符号 Chess Symbols（14個）
 🩠	tkrj
 🩡	jgs
