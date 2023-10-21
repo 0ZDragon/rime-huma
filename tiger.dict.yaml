@@ -1,6 +1,6 @@
 
 name: tiger
-version: "2023.08.26"
+version: "2023.10.16"
 sort: by_weight
 use_preset_vocabulary: false
 columns:
@@ -9697,6 +9697,8 @@ columns:
 歷	xxx	268
 歷	xxxs	268
 溷	krjs	268
+糞	pql	268
+糞	pqlh	268
 習	zub	268
 蓥	lwz	268
 蓥	lwzj	268
@@ -10868,6 +10870,7 @@ columns:
 凓	wve	257
 凓	wvem	257
 凘	wzht	257
+凪	osi	257
 凵	mk	257
 刂	pd	257
 刌	kpd	257
@@ -11041,6 +11044,7 @@ columns:
 嗱	djdu	257
 嗻	dxl	257
 嗻	dxlc	257
+嗼	dlom	257
 嘅	did	257
 嘅	didu	257
 嘑	dzt	257
@@ -11920,6 +11924,7 @@ columns:
 槺	exbk	257
 槻	ehej	257
 樋	ektu	257
+樛	ezje	257
 樸	ecgi	257
 橑	emh	257
 橑	emhy	257
@@ -13779,6 +13784,8 @@ columns:
 𥖄	mgwe	257
 𥖨	mdde	257
 𥥷	ezd	257
+𥧔	evp	257
+𥧔	evpm	257
 𥮾	rkm	257
 𥮾	rkme	257
 𥯨	rqh	257
@@ -13993,6 +14000,8 @@ columns:
 𫠊	nziy	257
 𫠜	lpp	257
 𫠜	lppe	257
+𫠡	fjg	257
+𫠡	fjgs	257
 𫠣	ryx	257
 𫢸	jhq	257
 𫢸	jhqn	257
@@ -14304,6 +14313,7 @@ columns:
 𰽼	zhlc	257
 𰽽	zgy	257
 𰾫	zpra	257
+𱁬	tbtt	257
 𱂨	wbw	257
 𱂨	wbwy	257
 𱂩	nwy	257
@@ -15064,6 +15074,7 @@ columns:
 愐	hbmx	255
 舁	plcj	255
 忮	hcix	255
+茑	lxnc	255
 微	wvfo	255
 赢	fdvo	255
 徽	wvfi	255
@@ -15975,8 +15986,6 @@ columns:
 禪	fddn	11
 範	ryz	11
 範	ryzj	11
-糞	pql	11
-糞	pqlh	11
 紹	ipdk	11
 臥	qjr	11
 賦	ofps	11
@@ -16812,7 +16821,6 @@ columns:
 凧	orj	0
 凨	oby	0
 凩	oem	0
-凪	osi	0
 凬	ofor	0
 凮	ofu	0
 凮	ofub	0
@@ -17283,7 +17291,6 @@ columns:
 嗹	dyuc	0
 嗺	dvu	0
 嗺	dvui	0
-嗼	dlom	0
 嗿	djao	0
 嘂	ddid	0
 嘃	dxbt	0
@@ -20543,7 +20550,6 @@ columns:
 樕	exeq	0
 樖	jdez	0
 樚	exl	0
-樛	ezje	0
 樜	exlc	0
 樝	ezf	0
 樝	ezfq	0
@@ -32302,7 +32308,6 @@ columns:
 㯥	eoeo	0
 㯦	ezhe	0
 㯧	eppd	0
-㯨	evp	0
 㯨	evpm	0
 㯩	rrrb	0
 㯪	etjk	0
@@ -62545,7 +62550,6 @@ columns:
 𥧑	evqh	0
 𥧒	eqfg	0
 𥧓	enm	0
-𥧔	evpm	0
 𥧕	ekbo	0
 𥧖	ekqr	0
 𥧗	engg	0
@@ -68809,7 +68813,7 @@ columns:
 𧂸	lcdg	0
 𧂹	ltjj	0
 𧂺	lqth	0
-𧂻	lavf	0
+𧂻	layn	0
 𧂼	letd	0
 𧂽	nonu	0
 𧂾	lxep	0
@@ -88054,8 +88058,6 @@ columns:
 𫠛	lols	0
 𫠝	wshp	0
 𫠠	pi	0
-𫠡	fjg	0
-𫠡	fjgs	0
 𫠢	yfad	0
 𫠤	apd	0
 𫠥	fmja	0
@@ -105791,7 +105793,6 @@ columns:
 𱁩	tkyz	0
 𱁪	tqqg	0
 𱁫	tuuu	0
-𱁬	tbtt	0
 𱁭	avwr	0
 𱁮	avbr	0
 𱁯	vvvr	0
@@ -111425,6 +111426,7 @@ columns:
 ㇡	ae	0
 ㇢	ae	0
 ㇣	dk	0
+㇯	rrfi	0
 ⺀	wb	0
 ⺁	xc	0
 ⺂	ae	0
@@ -112789,6 +112791,10 @@ columns:
 ⿹	rae	0
 ⿺	rae	0
 ⿻	rrk	0
+⿼	rnk	0
+⿽	rgfi	0
+⿾	rfdd	0
+⿿	radk	0
 ㄅ	ae	0
 ㄆ	hi	0
 ㄇ	mk	0
