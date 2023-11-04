@@ -7,8 +7,9 @@ schema:
   version: "0.18"
   author:
     - 秃
+    - 0ZDragon
   description: |
-    拼音++
+    拼音++魔改版
   dependencies:
     - stroke
 

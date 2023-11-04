@@ -97,10 +97,10 @@ reverse_pinyin:
   prefix: "`"
   suffix: "'"
   tips: 〔拼音反查〕
-  preedit_format:
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
+#  preedit_format:
+#    - xform/([nl])v/$1ü/
+#    - xform/([nl])ue/$1üe/
+#    - xform/([jqxy])v/$1u/
 
 # 笔画反查
 reverse_stroke:
@@ -118,10 +118,6 @@ punctuator:
 key_binder:
   import_preset: default
   bindings:
-    # 分号次选
-    - {accept: semicolon, send: 2, when: has_menu}
-    # 引号三选
-    - {accept: apostrophe, send: 3, when: has_menu}
     # 数字键盘回车
     - { when: has_menu, accept: KP_Enter, send: Return }
     # 拆分滤镜开关
