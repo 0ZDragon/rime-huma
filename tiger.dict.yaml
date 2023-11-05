@@ -16,8 +16,9 @@ import_tables:
   - tiger.khitan
   - tiger.symbols
   - tiger.extended
-  # 词
-  # - tigress_ci
+  # 词码表
+  - tigress_ci
+  # 简词码表
   # - tigress_simp_ci
 encoder:
   rules:
