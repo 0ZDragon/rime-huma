@@ -108,6 +108,7 @@ reverse_pinyin:
 # 笔画反查
 reverse_stroke:
   tag: reverse_stroke
+  enable_completion: true
   dictionary: stroke
   prefix: "~"
   suffix: "'"
