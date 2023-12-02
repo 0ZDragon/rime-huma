@@ -4,8 +4,9 @@
 schema:
   schema_id: stroke
   name: "五笔画"
-  version: "0.5"
+  version: "0.6"
   author:
+    - 码表作者：宋天郑码
     - 四季的風
     - 雪齋
     - Kunki Chou
@@ -50,6 +51,8 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+  filters:
+    - uniquifier
 
 speller:
   alphabet: "abcdefghijklmnopqrstuvwxyz"
@@ -121,8 +124,6 @@ key_binder:
     - { when: always, accept: "KP_0", send: space }
     # 小键盘减号为退格
     - { when: always, accept: "KP_Subtract", send: BackSpace }
-    # 分号次选
-    - {accept: semicolon, send: 2, when: has_menu}
     # 数字键盘回车
     - { when: has_menu, accept: KP_Enter, send: Return }
 
